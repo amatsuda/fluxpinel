@@ -1,5 +1,5 @@
 # The spinel tests that Fluxpinel answers right, for make regress.
-# make oracle writes this file. spinel: 5cce6eb0366c
+# make oracle writes this file. spinel: a9187ad07181
 absolute_class_reopen_inside_module
 abstract_raise_override_return
 addrinfo_family_predicates
@@ -1423,6 +1423,7 @@ class_superclass
 class_superclass_class_new
 class_table_loop_status_classes
 class_table_loop_values
+class_value_aref_census
 class_value_attr_or_write
 class_value_builtin_and_nested
 class_value_builtin_arm_conversion_raises
@@ -1436,6 +1437,7 @@ class_value_cmethod_kwargs_instance_clash
 class_value_cmethod_raise_only_value
 class_value_cmethod_splat
 class_value_const_from_method
+class_value_const_new_census
 class_value_dispatch_args
 class_value_dispatch_arity
 class_value_dispatch_keywords
@@ -1463,6 +1465,7 @@ class_value_new_default_reads_param
 class_value_new_default_reads_self
 class_value_new_defaults_rooted
 class_value_new_elem_nil_no_builtin_arm
+class_value_new_empty_elem
 class_value_new_empty_kwsplat
 class_value_new_exception_subclass
 class_value_new_from_builtin
@@ -1495,6 +1498,7 @@ class_value_object_id
 class_value_or_write_slots
 class_value_ordering_user_operator
 class_value_own_at
+class_value_own_include_p
 class_value_own_name_via_class
 class_value_reopened_builtin_new
 class_value_respond_to
@@ -1715,6 +1719,8 @@ const_defined_builtin_names_no_consts
 const_defined_deferred_early
 const_defined_receiver_scope
 const_defined_runtime_name
+const_defined_same_leaf_included
+const_defined_same_leaf_two_modules
 const_env_defined_parity
 const_float_table_rows
 const_get_beside_instance_const_get
@@ -3276,6 +3282,7 @@ index_op_write_value_position
 index_opassign_fused
 index_opassign_in_thread_block
 index_opassign_value_prelude_rhs
+index_opw_boxed_recv_root
 index_opw_local_hash_recv_root
 index_opw_local_recv_root
 index_or_write_empty_hash
@@ -4151,6 +4158,7 @@ kernel_reopen_methods
 kernel_reopen_private_by_name
 kernel_reopen_public_receiver
 kernel_require_qualified
+kernel_respond_to_missing_blank_slate
 kernel_rows_internal
 kernel_rows_internal_share
 kernel_select
@@ -4248,6 +4256,7 @@ lambda_nested_numbered_params
 lambda_param_written_int
 lambda_returned_from_lambda
 lambda_strict_arity
+last_match_after_regexp_match
 last_match_named_group
 late_ancestor_ivar_layout
 late_call_kernel_method_missing
@@ -4304,7 +4313,10 @@ loop_bounded_index_polls
 loop_bounded_index_read
 loop_break_runs_ensure
 loop_break_value
+loop_cobounded_reads
+loop_cobounded_reads_threads
 loop_header_cache_return
+loop_raise_nested_class_stop
 loop_reraise_keeps_exception
 loop_return_frame_pop
 loop_return_string_handle
@@ -4821,6 +4833,7 @@ nested_empty_rows_push_evidence
 nested_ensure_handler
 nested_ensure_self
 nested_fiber_body_ensure
+nested_function_bodies_deep
 nested_hash_param_store_other_key
 nested_index_write_poly_index
 nested_massign
@@ -5043,6 +5056,7 @@ object_array_new_deep_next
 object_array_push_element_read
 object_array_reader_boxed_receiver
 object_array_reader_named_like_cmethod
+object_array_return_widened_after_fixpoint
 object_array_tail_walk_prepend
 object_array_tail_walk_return
 object_array_walk_ends_branch
@@ -5692,6 +5706,7 @@ poly_recv_hash_dup
 poly_recv_hash_each_dispatch
 poly_recv_int_iterators
 poly_recv_map_join
+poly_recv_own_named_block_forward
 poly_recv_range_sym_hash_dispatch
 poly_recv_repeated_each_index
 poly_recv_str_transform_class_method
@@ -5706,6 +5721,7 @@ poly_relop_boxed_in_builtin_arm
 poly_return_value_class
 poly_rewind_kwsplat
 poly_rhs_into_poly_array_slot
+poly_root_reopen_lacks_one_name
 poly_round_half_keyword
 poly_select_bang_forwarded_block_enum
 poly_self_deref
@@ -6020,6 +6036,9 @@ process_spawn_file_redirect
 process_spawn_group_redirect
 process_spawn_splat_and_pair
 process_status_equality
+process_wait_flags_thread
+process_wait_wnohang
+process_wait_wuntraced
 process_waitpid2_sets_status
 product_block_splat
 product_block_typed_params
@@ -6048,6 +6067,7 @@ promote_poly_unbox_bigint
 promote_pow_runtime_exponent
 promote_range_sum_overflow
 promote_rational_bignum
+promote_rational_literal_beside_fresh
 promote_respond_to_builtin_absent
 promote_send_splat_builtin_count
 promote_shl_pow_bigint
@@ -7090,6 +7110,7 @@ str_append_accumulator
 str_append_ascii_int
 str_append_value_keeps_nul
 str_array_delete_boxed_needle
+str_array_elem_write
 str_array_include_nil_arg
 str_array_ivar_widen_frozen
 str_array_max_min_by
@@ -8153,6 +8174,7 @@ unresolved_recv_compare
 unresolved_super_value
 unresolved_tail_call_value
 unresolved_value_typed_slot
+unrouted_builtin_name_lookup
 unset_ivar_param_boxes_nil
 unset_ivar_param_boxes_nil_scoped
 unset_pointer_ivar_answers_nil
