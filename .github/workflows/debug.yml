@@ -10,6 +10,7 @@ jobs:
         include:
           - { name: branch, repo: amatsuda/fluxpinel, ref: debug-const-ci }
           - { name: master, repo: hasumikin/fluxpinel, ref: master }
+          - { name: before46, repo: hasumikin/fluxpinel, ref: "" }
     runs-on: ubuntu-latest
     name: ${{ matrix.name }}
     steps:
