@@ -8,7 +8,7 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - { name: branch, repo: amatsuda/fluxpinel, ref: debug-const-ci }
+          - { name: landed, repo: amatsuda/fluxpinel, ref: landed-before-lock }
           - { name: master, repo: hasumikin/fluxpinel, ref: master }
           - { name: before46, repo: hasumikin/fluxpinel, ref: 6c9cbaf8dd8b2ba628d45da21eb12513cb21c17a }
     runs-on: ubuntu-latest
