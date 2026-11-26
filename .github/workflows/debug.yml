@@ -1,0 +1,34 @@
+name: debug
+on:
+  push:
+    branches: [debug-const-ci]
+jobs:
+  host:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { name: branch, repo: amatsuda/fluxpinel, ref: debug-const-ci }
+          - { name: master, repo: hasumikin/fluxpinel, ref: master }
+    runs-on: ubuntu-latest
+    name: ${{ matrix.name }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          repository: ${{ matrix.repo }}
+          ref: ${{ matrix.ref }}
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "4.0"
+      - run: sudo apt-get update && sudo apt-get install -y libffi-dev
+      - run: make gems
+      - run: make -j$(getconf _NPROCESSORS_ONLN) deps
+      - run: make -j$(getconf _NPROCESSORS_ONLN)
+      - run: make test-host || true
+      - name: threads.rb ten times
+        run: |
+          for i in $(seq 1 10); do echo "--- run $i"; build/host/fluxpinel test/host/threads.rb 2>&1 | grep -n 'NameError'; done
+          echo "--- gc stress"
+          for i in $(seq 1 3); do SPINEL_GC_STRESS=2 SPINEL_GC_VERIFY=1 build/host/fluxpinel test/host/threads.rb 2>&1 | grep -n 'NameError'; done
+          echo "--- one worker"
+          for i in $(seq 1 3); do SPINEL_WORKERS=1 build/host/fluxpinel test/host/threads.rb 2>&1 | grep -n 'NameError'; done
